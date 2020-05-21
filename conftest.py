@@ -1,5 +1,6 @@
 import pytest
 from selenium import webdriver
+import time
 
 @pytest.fixture(scope="class")
 def browser():
@@ -7,5 +8,6 @@ def browser():
     browser = webdriver.Chrome()
     yield browser
     print("\nquit browser..")
+    time.sleep(5)
     browser.quit()
 

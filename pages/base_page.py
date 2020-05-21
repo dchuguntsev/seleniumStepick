@@ -1,5 +1,5 @@
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
-from selenium.common.exceptions import NoAlertPresentException  # в начале файла
+from selenium.common.exceptions import NoAlertPresentException
 from selenium.webdriver.support import expected_conditions as EC
 import math
 from selenium.webdriver.support.wait import WebDriverWait
@@ -43,6 +43,12 @@ class BasePage():
         except TimeoutException:
             return False
         return True
+
+
+    def go_to_basket_page(self):
+        link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
+        link.click()
+
 
 
     def solve_quiz_and_get_code(self):
