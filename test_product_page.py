@@ -1,8 +1,7 @@
 from pages.basket_page import BasketPage
-from .pages.product_page import productPage
-from .pages.login_page import LoginPage
-import time
-import pytest
+from pages.product_page import productPage
+from pages.login_page import LoginPage
+
 
 def test_guest_can_add_product_to_basket(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019."
@@ -12,7 +11,6 @@ def test_guest_can_add_product_to_basket(browser):
     print(page.get_price())
     print(page.get_book_name())
     assert page.validate_product(page.get_book_name(), page.get_price())
-    time.sleep(10000)
 
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019."
