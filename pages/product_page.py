@@ -18,10 +18,8 @@ class productPage(BasePage):
     def validate_product(self, book, price):
         bookname = self.browser.find_element(By.CSS_SELECTOR, ".col-sm-6 > h1").text
         bookprice = self.browser.find_element(By.CSS_SELECTOR, ".col-sm-6 > p").text
-        if bookname == book and bookprice == price:
-            return True
-        else:
-            return False
+        assert bookname == book, "Названия книг не совпадают"
+        assert bookprice == price, "Цена не совпадает"
 
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
