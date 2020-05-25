@@ -83,6 +83,5 @@ class TestUserAddToBasketFromProductPage():
         page.add_to_basket()
         print(page.get_price())
         print(page.get_book_name())
-        assert page.validate_product(page.get_book_name(), page.get_price())
-
+        page.validate_product(page.get_book_name(), page.get_price())
 
